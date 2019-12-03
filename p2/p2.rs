@@ -7,10 +7,10 @@ fn compute(mut program: Vec<i32>, p1: i32, p2: i32) -> i32 {
     let mut idx = 0;
     loop {
         let (opcode, a, b, c) = (
-            program[idx] as usize,
-            program[idx + 1] as usize,
-            program[idx + 2] as usize,
-            program[idx + 3] as usize,
+            *program.get(idx).unwrap_or(&0) as usize,
+            *program.get(idx + 1).unwrap_or(&0) as usize,
+            *program.get(idx + 2).unwrap_or(&0) as usize,
+            *program.get(idx + 3).unwrap_or(&0) as usize,
         );
 
         match opcode {
