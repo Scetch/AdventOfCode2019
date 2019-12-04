@@ -37,8 +37,8 @@ fn main() {
         .flat_map(str::parse::<i32>)
         .collect::<Vec<_>>();
 
-    let (noun, verb) = (0i32..99)
-        .flat_map(|noun| std::iter::repeat(noun).zip(0i32..99))
+    let (noun, verb) = (0..=99)
+        .flat_map(|noun| std::iter::repeat(noun).zip(0..=99))
         .find(|(noun, verb)| compute(program.clone(), *noun, *verb) == 19690720)
         .expect("No solution");
 
